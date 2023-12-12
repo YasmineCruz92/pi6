@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tela de Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #00bcd4; /* Cor verde água */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #login-container {
+            width: 300px;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #00bcd4; /* Cor verde água */
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        button.register {
+            background-color: #3498db;
+        }
+    </style>
+</head>
+<body>
+
+<div id="login-container">
+    <h2 style="color: #00bcd4;">Plantei</h2>
+    <form action="processar_login.php" method="post">
+        <input type="text" name="username" placeholder="Usuário" required>
+        <input type="password" name="password" placeholder="Senha" required>
+        <button type="submit" onclick="window.location.href='menu.html'">Entrar</button>
+    </form>
+    <p style="color: #00bcd4;">Não tem uma conta? <button class="register" onclick="window.location.href='cadastro.html'">Cadastrar</button></p>
+</div>
+
+</body>
+</html>
