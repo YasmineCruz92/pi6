@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Planta</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #cadastrarplanta-container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #00bcd4; /* Cor verde água */
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="cadastrarplanta-container">
+    <h2 style="color: #00bcd4;">Cadastrar Planta</h2>
+    <form action="processar_cadastro_planta.php" method="post">
+        <input type="hidden" name="nomePlanta" value="" id="nomePlantaInput">
+        <label for="dataPlantio">Data de Plantio:</label>
+        <input type="date" name="dataPlantio" required>
+        <label for="apelido">Apelido:</label>
+        <input type="text" name="apelido" placeholder="Apelido da Planta" required>
+        <label for="local">Local:</label>
+        <input type="text" name="local" placeholder="Local de Plantio" required>
+        <button type="submit">Cadastrar Planta</button>
+    </form>
+    <button onclick="window.location.href='catalogo.html'">Voltar ao Catálogo</button>
+</div>
+
+<script>
+    // Recupera o parâmetro da URL para obter a planta selecionada
+    var urlParams = new URLSearchParams(window.location.search);
+    var plantaSelecionada = urlParams.get('planta');
+    document.getElementById("nomePlantaInput").value = plantaSelecionada;
+</script>
+
+</body>
+</html>

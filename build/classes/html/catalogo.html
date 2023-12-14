@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #catalogo-container {
+            width: 80%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #00bcd4; /* Cor verde água */
+        }
+
+        select {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        #info-container {
+            text-align: left;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 15px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="catalogo-container">
+    <h2 style="color: #00bcd4;">Catálogo</h2>
+    <label for="plantas">Selecione uma planta:</label>
+    <select id="plantas" onchange="mostrarInfo()">
+        <option value="" selected disabled>Selecione</option>
+        <option value="rosa">Rosa</option>
+        <option value="lirio">Lírio</option>
+        <!-- Adicione mais plantas conforme necessário -->
+    </select>
+
+    <!-- Exibição das informações da planta -->
+    <div id="info-container"></div>
+
+    <button onclick="window.location.href='menu.html'">Voltar ao Menu</button>
+    <button onclick="window.location.href='cadastrarplanta.html'">Adicionar a Minhas Plantas</button>
+</div>
+
+<script>
+    function mostrarInfo() {
+        var plantaSelecionada = document.getElementById("plantas").value;
+        var infoContainer = document.getElementById("info-container");
+
+        // Mapeamento de informações de plantas (substitua com dados reais)
+        var informacoes = {
+            rosa: {
+                descricao: 'Informações sobre a Rosa.',
+                horasSol: '6 horas diárias',
+                adubacao: 'A cada 2 meses',
+                tempoSol: '12 horas diárias',
+                comoRegar: 'Regar moderadamente'
+            },
+            lirio: {
+                descricao: 'Informações sobre o Lírio.',
+                horasSol: '8 horas diárias',
+                adubacao: 'A cada 3 meses',
+                tempoSol: '10 horas diárias',
+                comoRegar: 'Regar regularmente'
+            }
+            // Adicione mais plantas conforme necessário
+        };
+
+        // Exibir informações da planta selecionada
+        infoContainer.innerHTML = plantaSelecionada ?
+            `
+            <h3>${plantaSelecionada}</h3>
+            <p><strong>Descrição:</strong> ${informacoes[plantaSelecionada].descricao}</p>
+            <p><strong>Horas de Sol:</strong> ${informacoes[plantaSelecionada].horasSol}</p>
+            <p><strong>Adubação:</strong> ${informacoes[plantaSelecionada].adubacao}</p>
+            <p><strong>Tempo de Sol:</strong> ${informacoes[plantaSelecionada].tempoSol}</p>
+            <p><strong>Como Regar:</strong> ${informacoes[plantaSelecionada].comoRegar}</p>
+        ` :
+            '';
+    }
+</script>
+
+</body>
+</html>
